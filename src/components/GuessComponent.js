@@ -118,7 +118,7 @@ export default function GuessComponent({data,counter,nextSentence}) {
         </Typography>
         <div>{inputRows}</div>
         { result &&
-        <Button id="next-button" autoFocus onClick={nextSentence} variant='contained' sx={{background:'#388e3c'}}>Next</Button>
+        <Button id="next-button" autoFocus size={'large'} onClick={nextSentence} variant='contained' sx={{background:'#388e3c'}}>Next</Button>
         }
         </>
     )

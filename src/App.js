@@ -27,8 +27,8 @@ function App() {
 
   return (
     <Grid container className='container'>
-      <Grid item lg={3} md={2} sm={0}></Grid>
-      <Grid item lg={6} md={8} sm={12} sx={{marginTop: '5rem'}} className='main'>
+      <Grid item lg={3} md={1} sm={0}></Grid>
+      <Grid item lg={6} md={10} sm={12} sx={{marginTop: '5rem'}} className='main'>
         { counter <= 10 &&
         <div>
         <DisplayComponent data={data} />
@@ -41,7 +41,7 @@ function App() {
         </div>
         }
       </Grid>
-      <Grid item lg={3} md={2} sm={0}></Grid>
+      <Grid item lg={3} md={1} sm={0}></Grid>
     </Grid>
   );
 }
