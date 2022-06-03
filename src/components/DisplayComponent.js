@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
+/* eslint-disable */
 export default function DisplayComponent({data}) {
   const [scrambledWords,setScrambledWords] = useState("")
 
@@ -31,7 +32,7 @@ export default function DisplayComponent({data}) {
   }
 
   useEffect(() => {
-    scrambleData() // eslint-disable-next-line
+    scrambleData()
   },[data])
 
   return (

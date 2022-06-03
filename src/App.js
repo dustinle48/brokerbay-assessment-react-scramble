@@ -4,6 +4,7 @@ import DisplayComponent from './components/DisplayComponent'
 import GuessComponent from './components/GuessComponent';
 import { Grid, Typography } from '@mui/material';
 
+/* eslint-disable */
 function App() {
   const [counter, setCounter] = useState(1)
   const [data, setData] = useState()
@@ -22,7 +23,7 @@ function App() {
   }
 
   useEffect(() => {
-    getData() // eslint-disable-next-line
+    getData()
   },[counter])
 
   return (

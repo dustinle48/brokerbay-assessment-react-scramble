@@ -1,6 +1,7 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
+/* eslint-disable */
 export default function GuessComponent({data,counter,nextSentence}) {
     const [sentence,setSentence] = useState([])
     const [answerArr,setAnswerArr] = useState([])
@@ -98,11 +99,11 @@ export default function GuessComponent({data,counter,nextSentence}) {
     )
 
     useEffect(() => {
-        handleSentence() // eslint-disable-next-line
-        handleAnswerArr() // eslint-disable-next-line
-        setResult(false) // eslint-disable-next-line
-        clearInputs() // eslint-disable-next-line
-        focusFirstInput() // eslint-disable-next-line
+        handleSentence()
+        handleAnswerArr() 
+        setResult(false)
+        clearInputs()
+        focusFirstInput()
     },[data])
 
     return (
