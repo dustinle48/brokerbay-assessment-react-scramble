@@ -29,15 +29,15 @@ export default function GuessComponent({data,counter,nextSentence}) {
         }
     }
 
-    const checkGuessing = (e) => {
+    const checkGuessing = (event) => {
         let inputFields = document.getElementsByTagName("input")
         let inputFieldsArr = Array.from(inputFields)
 
-        let inputId = e.target.id
+        let inputId = event.target.id
         let inputField = inputFields.namedItem(inputId)
         let index = inputFieldsArr.indexOf(inputField)
 
-        if (e.target.value.toLowerCase() === answerArr[index]) {
+        if (event.target.value.toLowerCase() === answerArr[index]) {
             inputField.classList.add("right-input")
             if (inputFields[index+1]) inputFields[index+1].focus()
         } else {
