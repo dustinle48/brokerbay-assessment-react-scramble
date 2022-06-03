@@ -37,7 +37,7 @@ export default function GuessComponent({data,counter,nextSentence}) {
         let inputField = inputFields.namedItem(inputId)
         let index = inputFieldsArr.indexOf(inputField)
 
-        if (e.target.value === answerArr[index]) {
+        if (e.target.value.toLowerCase() === answerArr[index]) {
             inputField.classList.add("right")
             if (inputFields[index+1]) inputFields[index+1].focus()
         } else {
