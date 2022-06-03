@@ -46,6 +46,8 @@ export default function GuessComponent({data,counter,nextSentence}) {
 
         if (inputFieldsArr.every(input => input.classList.contains("right"))) {
             setResult(true)     
+        } else {
+            setResult(false)
         }
     }
 
@@ -56,6 +58,11 @@ export default function GuessComponent({data,counter,nextSentence}) {
             input.value = ""
             input.classList.remove("right")
         })
+    }
+
+    const focusFirstInput = () => {
+        let inputFields = document.getElementsByTagName("input")
+        if (inputFields[0]) inputFields[0].focus()
     }
 
     const inputBoxes = (row,index) => {
@@ -95,6 +102,7 @@ export default function GuessComponent({data,counter,nextSentence}) {
         handleAnswerArr() // eslint-disable-next-line
         setResult(false)
         clearInputs() // eslint-disable-next-line
+        focusFirstInput() 
     },[data])
 
     return (
@@ -110,7 +118,7 @@ export default function GuessComponent({data,counter,nextSentence}) {
         </Typography>
         <div>{inputRows}</div>
         { result &&
-        <Button id="next-button" onClick={nextSentence} variant='contained' sx={{background:'#388e3c'}}>Next</Button>
+        <Button id="next-button" autoFocus onClick={nextSentence} variant='contained' sx={{background:'#388e3c'}}>Next</Button>
         }
         </>
     )
