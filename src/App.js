@@ -1,24 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from "react"
+import DisplayComponent from './components/DisplayComponent'
+import GuessComponent from './components/GuessComponent';
+import { Grid, Typography } from '@mui/material';
 
 function App() {
+  const [counter, setCounter] = useState(1)
+  const [data, setData] = useState()
+
+  const API = `https://api.hatchways.io/assessment/sentences/${counter}`
+
+  const getData = async () => {
+    fetch(API)
+    .then(res => res.json())
+    .then(resData => setData(resData.data.sentence))
+    .catch(err => console.error(err))
+  }
+
+  const nextSentence = () => {
+    setCounter(counter+1)
+  }
+
+  useEffect(() => {
+    getData() // eslint-disable-next-line
+  },[counter])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container className='container'>
+      <Grid item lg={3} md={2} sm={0}></Grid>
+      <Grid item lg={6} md={8} sm={12} sx={{marginTop: '5rem'}} className='main'>
+        { counter <= 10 &&
+        <div>
+        <DisplayComponent data={data} />
+        <GuessComponent data={data} counter={counter} nextSentence={nextSentence} />
+        </div>
+        }
+        { counter > 10 &&
+        <div>
+          <Typography variant='h4'>You win!</Typography>
+        </div>
+        }
+      </Grid>
+      <Grid item lg={3} md={2} sm={0}></Grid>
+    </Grid>
   );
 }
 
