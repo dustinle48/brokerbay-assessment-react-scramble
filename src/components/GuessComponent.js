@@ -38,13 +38,13 @@ export default function GuessComponent({data,counter,nextSentence}) {
         let index = inputFieldsArr.indexOf(inputField)
 
         if (e.target.value.toLowerCase() === answerArr[index]) {
-            inputField.classList.add("right")
+            inputField.classList.add("right-input")
             if (inputFields[index+1]) inputFields[index+1].focus()
         } else {
-            inputField.classList.remove("right")
+            inputField.classList.remove("right-input")
         }
 
-        if (inputFieldsArr.every(input => input.classList.contains("right"))) {
+        if (inputFieldsArr.every(input => input.classList.contains("right-input"))) {
             setResult(true)     
         } else {
             setResult(false)
@@ -56,7 +56,7 @@ export default function GuessComponent({data,counter,nextSentence}) {
         let inputFieldsArr = Array.from(inputFields)
         inputFieldsArr.forEach(input => {
             input.value = ""
-            input.classList.remove("right")
+            input.classList.remove("right-input")
         })
     }
 
@@ -82,7 +82,7 @@ export default function GuessComponent({data,counter,nextSentence}) {
         if (index !== sentence.length-1) {
             content.push(
                 <Grid item xs={boxWidth}>
-                    <TextField onChange={event => checkGuessing(event)} inputProps={inputProps} variant='outlined' fullWidth className='space' />
+                    <TextField onChange={event => checkGuessing(event)} inputProps={inputProps} variant='outlined' fullWidth className='space-input' />
                 </Grid>
             )
         }
@@ -100,9 +100,9 @@ export default function GuessComponent({data,counter,nextSentence}) {
     useEffect(() => {
         handleSentence() // eslint-disable-next-line
         handleAnswerArr() // eslint-disable-next-line
-        setResult(false)
+        setResult(false) // eslint-disable-next-line
         clearInputs() // eslint-disable-next-line
-        focusFirstInput() 
+        focusFirstInput() // eslint-disable-next-line
     },[data])
 
     return (

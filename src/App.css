@@ -52,10 +52,10 @@ body {
   justify-content: center;
 }
 
-.space {
+.space-input {
   background-color: #ffb74d;
 }
 
-.right {
+.right-input {
   background-color: #4caf50 !important;
 }
